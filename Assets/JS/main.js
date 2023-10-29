@@ -30,24 +30,25 @@ function linkAction(){
 navLink.forEach(n => n.addEventListener('click',linkAction))
 
 /*==================== ACCORDION SKILLS ====================*/
-const skillsContent = document.getElementsByClassName('skills__content'),
-      skillsHeader = document.querySelectorAll('.skills__header')
+const skillsContent = document.getElementsByClassName('skills__content');
+const skillsHeader = document.querySelectorAll('.skills__header');
 
+function toggleSkills() {
+    let itemClass = this.parentNode.className; // Change 'ClassName' to 'className'
 
-function toggleSkills(){
-    let itemClass = this.parentNode.ClassName
-
-    for(i=0; i < skillsContent.length; i++){
-        skillsContent[i].className = 'skills__content skills__close'
+    for (let i = 0; i < skillsContent.length; i++) {
+        skillsContent[i].className = 'skills__content skills__close';
     }
-    if(itemClass === 'skills__content skills__close'){
-        this.parentNode.className = 'skills__content skills__open'
+
+    if (itemClass === 'skills__content skills__close') {
+        this.parentNode.className = 'skills__content skills__open';
     }
 }
 
 skillsHeader.forEach((el) => {
-    el.addEventListener('click', toggleSkills)
-})
+    el.addEventListener('click', toggleSkills);
+});
+
 
 /*==================== QUALIFICATION TABS ====================*/
 const tabs = document.querySelectorAll('[data-target]'),
@@ -94,18 +95,20 @@ modalCloses.forEach((modalClose) => {
 
 /*==================== PORTFOLIO SWIPER  ====================*/
 let swiperPortfolio = new Swiper(".portfolio__container", {
-  cssMode: true,
-  loop: true,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
+    cssMode: true,
+    loop: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    autoplay: {
+        delay: 3000, // 3000 milliseconds (3 seconds)
+    },
 });
-
 /*==================== TESTIMONIAL ====================*/
 let swiperTestimonial = new Swiper(".testimonial__container", {
     loop: true,
@@ -189,4 +192,3 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
-
