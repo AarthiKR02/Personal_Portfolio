@@ -70,16 +70,15 @@
 
 /*========== Variables Dark theme ==========*/
 body.dark-theme{
-    /* HSL color mode */
-    --first-color-second: hsl(var(--hue-color), 30%, 8%);
-    --title-color: hsl(var(--hue-color), 8%, 95%);
-    --text-color: hsl(var(--hue-color), 8%, 75%);
-    --input-color: hsl(var(--hue-color), 29%, 16%);
-    --body-color: hsl(var(--hue-color), 28%, 12%);
-    --container-color: hsl(var(--hue-color), 29%, 16%);
-    --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
-    --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
-}
+  --first-color-second: hsl(0, 0%, 0%); /* Black background */
+  --title-color: hsl(0, 0%, 95%); /* Light text color */
+  --text-color: hsl(0, 0%, 75%); /* Slightly darker text */
+  --input-color: hsl(0, 0%, 16%); /* Dark input background */
+  --body-color: hsl(0, 0%, 12%); /* Darker body color */
+  --container-color: hsl(0, 0%, 16%); /* Dark container color */
+}  
+    
+    
 
 /*========== Button Dark/Light ==========*/
 .nav__btns{
@@ -171,8 +170,9 @@ img {
 .header {
   width: 100%;
   position: fixed;
-  bottom: 0;
+  
   left: 0;
+  top: 0;
   z-index: var(--z-fixed);
   background-color: var(--body-color);
 }
@@ -352,12 +352,15 @@ img {
   font-size: 1.25rem;
 }
 /*==================== BUTTONS ====================*/
-.button{
+.button {
   display: inline-block;
-  background-color: var(--first-color);
-  color: #fff;
+  background-color: blueviolet;
+  color: #FFF;
+  border: 2px solid var(--outer-border-color); 
+  padding: 10px 20px; 
   border-radius: .5rem;
-  font-weight: var(--font-medium);
+  font-weight: var(--font-semi-bold);
+  margin: 10px; 
 }
 
 .button:hover{
@@ -692,6 +695,13 @@ img {
   overflow: initial;
 }
 
+.portfolio__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 20px; /* Adjust this value as needed for the desired spacing */
+}
+
+
 .portfolio__content{
   padding: 0 1.5rem;
 }
@@ -726,11 +736,11 @@ img {
 }
 
 .swiper-button-prev{
-  left: -.5rem;
+  left: -5rem;
 }
 
 .swiper-button-next{
-  right: -.5rem;
+  right: -5rem;
 }
 
 .swiper-container-horizontal > .swiper-pagination-bullets{
@@ -913,7 +923,7 @@ img {
 .footer__copy{
   font-size: var(--smaller-font-size);
   text-align: center;
-  color: var(--text-color-light);
+  color: darkred;
   margin-top: var(--mb-3);
 }
 
@@ -921,7 +931,7 @@ img {
 .footer__subtitle,
 .footer__link,
 .footer__social{
-  color: #fff;
+  color:whitesmoke;
 }
 /*========== SCROLL UP ==========*/
 .scrollup{
@@ -947,7 +957,7 @@ img {
 
 /* Show scroll */
 .show-scroll{
-  bottom: 5rem;
+  bottom: 6rem;
 }
 
 /*========== SCROLL BAR ==========*/
@@ -965,65 +975,76 @@ img {
 ::-webkit-slider-thumb:hover{
   background-color: var(--text-color-light);
 }
+
 /*==================== MEDIA QUERIES ====================*/
-/* For small devices */
-@media screen and (max-width: 350px){
-  .container{
+
+/* For small devices (e.g., mobile phones) */
+@media screen and (max-width: 767px) {
+  /* Modify styles for small screens here */
+
+  .container {
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
   }
 
-  .nav__menu{
-    padding: 2rem .25rem 4rem;
-  }
-  .nav__list{
-    column-gap: 0;
+  .nav__menu {
+    padding: 2rem 1rem; /* Adjust padding for mobile */
   }
 
-  .home__content{
-    grid-template-columns: .25fr 3fr;
-  }
-  .home__blob{
-    width: 180px;
+  .nav__list {
+    column-gap: 1rem; /* Reduce column gap */
+    flex-direction: column; /* Display links vertically */
+    align-items: center; /* Center-align items */
   }
 
-  .skills__title{
+  .home__content {
+    grid-template-columns: 1fr; /* Single column layout */
+    row-gap: 1.5rem; /* Add some spacing between elements */
+  }
+
+  .home__blob {
+    width: 150px; /* Decrease blob size */
+  }
+
+  .skills__title {
     font-size: var(--normal-font-size);
   }
 
-  .qualification__data{
+  .qualification__data {
     gap: .5rem;
   }
 
-  .services__container{
-    grid-template-columns: max-content;
+  .services__container {
+    grid-template-columns: 1fr; /* Single column layout */
     justify-content: center;
-  }
-  .services__content{
-    padding: 3.5rem;
-  }
-  .services__modal{
-    padding: 0 .5rem;
+    padding: 1rem; /* Adjust padding */
   }
 
-  .project__img{
-    width: 200px;
+  .services__content {
+    padding: 2rem; /* Adjust padding */
+  }
+
+  .project__img {
+    width: 150px; /* Decrease image size */
   }
 
   .testimonial__data,
-  .testimonial__header{
+  .testimonial__header {
     flex-direction: column;
     align-items: center;
   }
-  .testimonial__img{
+
+  .testimonial__img {
     margin-right: 0;
     margin-bottom: var(--mb-0-25);
   }
+
   .testimonial__data,
-  .testimonial__description{
+  .testimonial__description {
     text-align: center;
   }
 }
+
 
 /* For medium devices */
 @media screen and (min-width: 568px){
